@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        <meta name="author" content="Brett LaBombarda" />
+        <meta name="description" content="description"/>
+        <meta name="keywords" content="keywords" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:site_name" content="{{ SITENAME }}" />
+        {% if article %}
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="{{ article.title|striptags }}" />
+            <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+            <meta property="og:description" content="{{ article.summary|striptags }}" />
+            {% if article.tags %}
+            {% for tag in article.tags %}
+                <meta property="article:tag" content="{{ tag }}" />
+            {% endfor %}
+            {% endif %}
+        {% elif page %}
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="{{ page.title|striptags }}" />
+            <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}" />
+        {% else %}
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="{{ SITENAME }}" />
+            <meta property="og:url" content="{{ SITEURL }}" />
+            <meta property="og:description" content="{{ SITENAME }}" />
+        {% endif %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura-pink.css" type="text/css">
+        {% endblock stylesheets %}
+        {% if FEED_ALL_ATOM %}
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+    </head>
+    <body>
+        <header>
+            <h1>Shallot Party!!!</h1>
+        </header>
+
+        {% block container %}
+        <div>
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+        {% endblock container %}
+    </body>
+</html>
