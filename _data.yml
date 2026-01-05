@@ -1,0 +1,20 @@
+lang: en
+home:
+  welcome: "Shallot Party"
+  intro: "Welcome to [**Xeo**](https://github.com/famebot/xeo), a *deluxe* [**Lume&nbsp;theme**](https://lume.land/theme/xeo/)."
+
+copyright: "[Xeo](https://github.com/famebot/xeo) &copy; 2022-present [Óscar&nbsp;Otero](https://oscarotero.com/) &amp; [Ricky&nbsp;de&nbsp;Laveaga](https://rdela.com/)"
+
+menu_links: []
+
+logo: "<img src=\"favicon.png\" alt=\"Shallot Party\" height=\"48\">"
+logo_height: 48
+
+metas:
+  site: Shallot Party
+  description: A collection of recipes
+  title: "=title"
+  image: "=image"
+  # twitter: "@famebot"
+  lang: en
+  generator: false
